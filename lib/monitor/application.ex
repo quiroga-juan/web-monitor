@@ -8,8 +8,7 @@ defmodule Monitor.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      # Starts a worker by calling: Monitor.Worker.start_link(arg)
-      # {Monitor.Worker, arg}
+      Monitor.Repo,
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
