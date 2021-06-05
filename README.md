@@ -1,21 +1,22 @@
-# Monitor
+# Monitor Web #
 
-**TODO: Add description**
+##Descripción de la aplicación
 
-## Installation
+##Pre-requisitos
+* Tener instalado [Elixir](https://elixir-lang.org/)
+* Base de datos [postgresql](https://www.postgresql.org/).
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `monitor` to your list of dependencies in `mix.exs`:
+##Correr los tests
+`mix test`
 
-```elixir
-def deps do
-  [
-    {:monitor, "~> 0.1.0"}
-  ]
-end
-```
+##Built With
+* [Ecto](https://hexdocs.pm/ecto/Ecto.html) para almacenamiento de los datos.
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/monitor](https://hexdocs.pm/monitor).
+##Instalación
 
+###Dependencias
+`mix deps.get`
+
+###Base de datos
+`mix ecto.create` (Sólo la primera vez)
+`mix ecto.migrate` (Para correr las migraciones)
