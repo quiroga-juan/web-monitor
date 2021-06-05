@@ -2,7 +2,7 @@
 
 ## Descripción de la aplicación
 
-##Pre-requisitos
+## Pre-requisitos
 * Tener instalado [Elixir](https://elixir-lang.org/)
 * Base de datos [postgresql](https://www.postgresql.org/).
 
