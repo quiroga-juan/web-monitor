@@ -23,7 +23,10 @@ defmodule Monitor.MixProject do
   defp deps do
     [
       {:ecto_sql, "~> 3.0"},
-      {:postgrex, ">= 0.0.0"}
+      {:postgrex, ">= 0.0.0"},
+      {:httpoison, "~> 1.8"},
+      {:poison, "~> 3.1"},
+      {:html_entities, "~> 0.5.2"}
     ]
   end
 end

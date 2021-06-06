@@ -3,8 +3,8 @@ import Config
 config :monitor, Monitor.Repo,
   database: "monitor",
   username: "postgres",
-  password: "postgres",
+  password: "Laoctava8$",
   hostname: "localhost",
-  port: 5434
+  port: 5432
 
 config :monitor, ecto_repos: [Monitor.Repo]
