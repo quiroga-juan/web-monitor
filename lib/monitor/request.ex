@@ -11,11 +11,11 @@ defmodule Request do
     #una que da la reason:
     #url = "http://localhost:1"
 
-    url = "https://guaraniautogestion.fi.uba.ar/g3w/acceso/login?ref=http://guaraniautogestion.fi.uba.ar/g3w/inicio_alumno"
+    url = "https://guaraniautogestion.fi.uba.ar/g3w/"
 
     case HTTPoison.get(url) do
       {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
-        IO.puts HtmlEntities.decode(body)
+        IO.inspect HtmlEntities.decode(body)
       {:ok, %HTTPoison.Response{status_code: 404}} ->
         IO.puts "Not found :("
       {:error, %HTTPoison.Error{reason: reason}} ->
