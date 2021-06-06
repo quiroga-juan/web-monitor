@@ -20,3 +20,6 @@
 ### Base de datos
 * `mix ecto.create` (Sólo la primera vez)
 * `mix ecto.migrate` (Para correr las migraciones)
+
+### Requests
+* Request.main (en la consola de Elixir)
