@@ -1,0 +1,7 @@
+<ul class="list-group">
+<%= for url <- @urls do %>
+  <li class="list-group-item"><%= url.url_name %></li>
+<% end %>
+</ul>
+
+<%= link "New url", to: Routes.url_path(@conn, :new), class: "btn btn-primary"  %>

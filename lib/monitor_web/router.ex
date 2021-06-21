@@ -15,7 +15,8 @@ defmodule MonitorWeb.Router do
 
   scope "/", MonitorWeb do
     pipe_through :browser
-
+      # Esto manda a /urls a la view de urls
+      resources "/urls", UrlController
     get "/", PageController, :index
   end
 
