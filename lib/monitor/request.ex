@@ -3,6 +3,14 @@ defmodule Request do
     get_request()
   end
 
+  def main(pid_bot, nombre_sitio, url) do
+    # Aca iria toda la logica de que el get_request para el URL se ejecute cada 1 minuto
+    # y cuando se ve en la base de datos que el estado cambio se ejecutaria la linea que 
+    # esta abajo
+    estado = "OK"
+    send(pid_bot, {:EnviarMensaje, nombre_sitio, estado})
+  end 
+
   def get_request() do
 
     #una pagina que da not found para probar:
