@@ -13,12 +13,12 @@ defmodule MonitorWeb.UrlController do
 
   def new(conn, _params) do
     # Esta funcion manda un changeset para llenar, que es para crear nuevas urls
-    changeset = Url.changeset(%Url{})
+    changeset = Url.url_changeset(%Url{})
     render(conn, "new.html", changeset: changeset)
   end
 
   def create(conn, %{"url" => url_params}) do
-    changeset = Url.changeset(%Url{}, url_params)
+    changeset = Url.url_changeset(%Url{}, url_params)
 
     case Repo.insert(changeset) do
       {:ok, _url} ->
