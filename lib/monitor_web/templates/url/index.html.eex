@@ -1,6 +1,6 @@
-<ul class="list-group">
+<div class="container">
 <%= for url <- @urls do %>
-  <li class="list-group-item"><%= url.url_name %></li>
+  <div class="row m-1 h2"><div class="col-3 text-left border text-truncate"><a class="align-middle"><%= url.url_name %></a></div><div class=""><%= button "Delete url", to: Routes.url_path(@conn, :delete, url.url_name), data: [confirm: "Sure?"], method: :delete, class: "btn btn-danger rounded" %></div></div>
 <% end %>
 </ul>
 

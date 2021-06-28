@@ -5,6 +5,8 @@ defmodule MonitorWeb.UrlController do
   alias Monitor.Url
   alias Monitor.Repo
 
+  require Logger
+
   def index(conn, _params) do
     # Esta funcion renderiza la pagina que muestra todas las urls
     urls = Repo.all(Url)
@@ -28,6 +30,20 @@ defmodule MonitorWeb.UrlController do
       {:error, changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
+  end
+
+  def show(conn, %{"id" => url_name}) do
+    url = Repo.get!(Url, url_name)
+    render(conn, "show.html", url: url)
+  end
+
+  def delete(conn, %{"id" => url_name}) do
+    url = Repo.get!(Url, url_name)
+    Repo.delete!(url)
+
+    conn
+    |> put_flash(:info, "url deleted successfully")
+    |> redirect(to: Routes.url_path(conn, :index))
   end
 
 end
