@@ -3,7 +3,7 @@ import Config
 config :monitor, Monitor.Repo,
   database: "monitor",
   username: "postgres",
-  password: "Laoctava8$",
+  password: "postgres",
   hostname: "localhost",
   port: 5432
 
