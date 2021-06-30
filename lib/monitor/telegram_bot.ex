@@ -3,8 +3,8 @@ defmodule TelegramBot do
 	def recibir_alertas() do
 		receive do
 			{:enviar_mensaje, url, nuevo_estado} -> enviar_mensaje(url, nuevo_estado)
-			recibir_alertas()
 		end
+		recibir_alertas()
 	end
 
 	def enviar_mensaje(nombre_url, nuevo_estado) do	

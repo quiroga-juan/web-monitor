@@ -15,7 +15,7 @@ defmodule Request do
   def get_request(url) do
 
     case HTTPoison.get(url) do
-      {:Ok, %HTTPoison.Response{status_code: estado}} -> estado
+      {:ok, %HTTPoison.Response{status_code: estado}} -> estado
       {:error, %HTTPoison.Error{reason: reason}} -> -1
     end
   end
