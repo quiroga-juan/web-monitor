@@ -22,15 +22,14 @@ defmodule MonitorWeb.UrlController do
   def create(conn, %{"url" => url_params}) do
     changeset = Url.url_changeset(%Url{}, url_params)
 
-    case Repo.insert(changeset) do
-      {:ok, _url} ->
-        conn
-        |> put_flash(:info, "url created successfully")
-        |> redirect(to: Routes.url_path(conn, :index))
-      {:error, changeset} ->
-        render(conn, "new.html", changeset: changeset)
-    end
-  end
+    pid = Process.whereis(:url_manager)
+    Logger.info(Process.alive?(pid))
+    %{"url_name"=> url_name} = url_params
+    send(pid, {:agregar_url, url_name})
+    conn
+    |> put_flash(:info, "url created successfully")
+    |> redirect(to: Routes.url_path(conn, :index))
+end
 
   def show(conn, %{"id" => url_name}) do
     url = Repo.get!(Url, url_name)

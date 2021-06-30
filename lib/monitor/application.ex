@@ -4,6 +4,7 @@ defmodule Monitor.Application do
   @moduledoc false
 
   use Application
+  require Logger
 
   @impl true
   def start(_type, _args) do
@@ -24,7 +25,7 @@ defmodule Monitor.Application do
     Process.register(pid_bot, :bot)
     pid_url_manager = spawn(fn -> UrlManager.recibir_alertas() end)
     Process.register(pid_url_manager, :url_manager)
-        
+
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options

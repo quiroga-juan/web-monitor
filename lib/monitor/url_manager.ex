@@ -13,5 +13,3 @@ defmodule UrlManager do
 		spawn(fn-> Request.main(url) end)
 	end
 end
-
-
