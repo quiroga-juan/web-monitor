@@ -3,13 +3,21 @@ defmodule UrlManager do
 	def recibir_alertas() do
 		receive do
 			{:agregar_url, url} -> agregar_url(url)
-			recibir_alertas()
+			{:borrar_url, url} -> borrar_url(url)
 		end
+		recibir_alertas()
 	end
 
 
 	defp agregar_url(url) do
 		UrlController.add_url(url)
-		spawn(fn-> Request.main(url) end)
+		pid = spawn(fn-> Request.main(url) end)
+    		Process.register(pid, String.to_atom(url))
+	end
+
+	defp borrar_url(url) do
+		pid = Process.whereis(String.to_atom(url))
+		Process.exit(pid, :deleted)
+		# Aca habria que borrar de la db
 	end
 end
