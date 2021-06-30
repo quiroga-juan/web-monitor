@@ -20,6 +20,12 @@ defmodule Monitor.Application do
       # {Monitor.Worker, arg}
     ]
 
+    pid_bot = spawn(fn -> TelegramBot.recibir_alertas() end)
+    Process.register(pid_bot, :bot)
+    pid_url_manager = spawn(fn -> UrlManager.recibir_alertas() end)
+    Process.register(pid_url_manager, :url_manager)
+        
+
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: Monitor.Supervisor]
