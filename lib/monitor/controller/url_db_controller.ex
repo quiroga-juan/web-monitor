@@ -41,4 +41,12 @@ defmodule UrlController do
         end
     end
  
+    def delete_url(url_name) do
+        url = Repo.get_by(Url, url_name: url_name)
+        case Repo.delete url do
+            {:ok, struct}       -> true
+            {:error, changeset} -> false
+        end
+    end
+
 end
