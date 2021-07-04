@@ -18,6 +18,6 @@ defmodule UrlManager do
 	defp borrar_url(url) do
 		pid = Process.whereis(String.to_atom(url))
 		Process.exit(pid, :deleted)
-		# Aca habria que borrar de la db
+		UrlController.delete_url(url)
 	end
 end
