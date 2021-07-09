@@ -39,3 +39,6 @@ mix.lock
 .idea/*
 *.dag
 config/dev.exs
+info.log
+package-lock.json
+.vscode/*
