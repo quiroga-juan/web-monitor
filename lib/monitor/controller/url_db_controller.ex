@@ -1,4 +1,4 @@
-defmodule UrlController do
+defmodule DbManager do
     alias Monitor.Url
     alias Monitor.Repo
     

@@ -10,7 +10,7 @@ defmodule UrlManager do
 
 
 	defp agregar_url(url) do
-		UrlController.add_url(url)
+		DbManager.add_url(url)
 		pid = spawn(fn-> Request.main(url) end)
     		Process.register(pid, String.to_atom(url))
 	end
@@ -18,6 +18,6 @@ defmodule UrlManager do
 	defp borrar_url(url) do
 		pid = Process.whereis(String.to_atom(url))
 		Process.exit(pid, :deleted)
-		UrlController.delete_url(url)
+		DbManager.delete_url(url)
 	end
 end

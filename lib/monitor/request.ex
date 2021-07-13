@@ -3,7 +3,7 @@ defmodule Request do
   require Logger
   def main(url) do
     estado = get_request(url)
-    estado_no_cambio = UrlController.update_status_url(url, estado)
+    estado_no_cambio = DbManager.update_status_url(url, estado)
     unless estado_no_cambio do
       pid_bot = Process.whereis(:bot)
       send(pid_bot, {:enviar_mensaje, url, estado})
